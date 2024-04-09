@@ -37,6 +37,7 @@ const Navbar = () => {
               aria-controls="navbarNav"
               aria-expanded="false"
               aria-label="Toggle navigation"
+              style={{border:"1px solid black"}}
             >
               <span className="navbar-toggler-icon"></span>
             </button>

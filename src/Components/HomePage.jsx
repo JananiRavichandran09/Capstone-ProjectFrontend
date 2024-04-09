@@ -13,11 +13,10 @@ const HomePage = () => {
 const navigate = useNavigate();
      useEffect(() => {
        axios
-         .get("http://localhost:5173/goldrate")
+         .get("https://gold-rate-calculation.netlify.app/goldrate")
          .then((result) => {
            console.log(result);
            if (result.data !== "Success") {
-            
            }
          })
          .catch((err) => console.log(err));

@@ -14,17 +14,19 @@ const RegisterPage = () => {
   
     e.preventDefault();
     axios
-      .post("http://localhost:4000/api/user/register", {
-        username,
-        email,
-        password,
-      })
+      .post(
+        "https://capstone-project-backend-j3mu.onrender.com/api/user/register",
+        {
+          username,
+          email,
+          password,
+        }
+      )
       .then((result) => {
-       alert("Registration successful! ");
+        alert("Registration successful! ");
         if (result.data.Status === "success") {
-         
-          navigate('/login')
-        } 
+          navigate("/login");
+        }
       })
       .catch((err) => {
         console.error(err);

@@ -14,22 +14,21 @@ const Login = () => {
      
     e.preventDefault()
     toast.success("Login Successfull!");
-    axios.post('http://localhost:4000/api/user/login', { email, password })
-      .then(result => {
-        console.log(result)
+    axios
+      .post(
+        "https://capstone-project-backend-j3mu.onrender.com/api/user/login",
+        { email, password }
+      )
+      .then((result) => {
+        console.log(result);
         let toastmessage = toast.success("Login Successfull!");
         if (result.data === "Success") {
-          
-        
-            navigate("/goldrate");
-          
+          navigate("/goldrate");
         }
-        
-      
       })
-      .catch(err => {
-        console.log(err)
-      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
  
   return (

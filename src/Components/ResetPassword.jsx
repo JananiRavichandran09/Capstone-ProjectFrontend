@@ -9,14 +9,20 @@ const [password, setPassword] = useState("")
   axios.defaults.withCredentials = true;
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post(`http://localhost:4000/api/user/resetpassword/${id}/${token}`, { password })
-      .then(res => {
+    axios
+      .post(
+        `https://capstone-project-backend-j3mu.onrender.com/api/user/resetpassword/${id}/${token}`,
+        { password }
+      )
+      .then((res) => {
         if (res.data.Status === "Success") {
-         alert("Password Updated!")
-        navigate('/login')
-      }
+          alert("Password Updated!");
+          navigate("/login");
+        }
       })
-    .catch(err => {console.log(err)})
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
     return (

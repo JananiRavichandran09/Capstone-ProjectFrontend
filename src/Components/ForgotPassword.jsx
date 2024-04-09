@@ -14,7 +14,10 @@ const ForgotPassword = () => {
     const payloads = { email };
     
     try {
-      const res = await axios.post("http://localhost:4000/api/user/forgotpassword", payloads);
+      const res = await axios.post(
+        "https://capstone-project-backend-j3mu.onrender.com/api/user/forgotpassword",
+        payloads
+      );
       if (res.data.Status === "Success") {
         alert("Check your Email for reset password link");
         navigate("/login");

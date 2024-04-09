@@ -14,7 +14,7 @@ const ForgotPassword = () => {
       "https://capstone-project-backend-j3mu.onrender.com/api/user/forgotpassword", { email })
       .then(res => {
         if (res.data.Status === "Success") {
-        navigate ('login')
+        navigate ('/login')
       }
     }) .catch(err => {console.log(err)})
   }

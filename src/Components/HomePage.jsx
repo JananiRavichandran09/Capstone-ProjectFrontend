@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import {  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const jsonData = {
   goldPrices: {
     "24k": 7324.48,
@@ -161,6 +161,9 @@ const navigate = useNavigate();
           <h3 style={{ marginTop: "14px", fontStyle: "italic" }}>
             Total Amount: ₹{totalPrice}
           </h3>
+          <button style={{backgroundColor:"black",padding:"10px", border:"none", borderRadius:"10px" }}>
+            <Link to='/login' style={{textDecoration:"none" ,color:"white"}}>Logout</Link>
+          </button>
         </div>
       </div>
     );

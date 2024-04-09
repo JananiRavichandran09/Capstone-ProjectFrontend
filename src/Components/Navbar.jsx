@@ -45,33 +45,7 @@ const Navbar = () => {
               className="collapse navbar-collapse justify-content-end"
               id="navbarNav"
             >
-              <ul className="navbar-nav ">
-                <li className="nav-item">
-                  <a
-                    className="nav-link active  "
-                    aria-current="page"
-                    href="#"
-                    style={{
-                      fontSize: "20px",
-                      fontFamily: "serif",
-                      fontWeight: "bolder",
-                    }}
-                  >
-                    <Link
-                      to="/login"
-                      style={{
-                        textDecoration: "none",
-                        color: "rgb(156, 83, 0)",
-                      }}
-                    >
-                      Logout{" "}
-                      <span>
-                        <i class="fa-solid fa-right-from-bracket"> </i>
-                      </span>
-                    </Link>
-                  </a>
-                </li>
-              </ul>
+             
             </div>
           </div>
         </nav>

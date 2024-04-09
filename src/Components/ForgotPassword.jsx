@@ -8,24 +8,16 @@ const ForgotPassword = () => {
 
   axios.defaults.withCredentials = true;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("login api payloads", email);
-    const payloads = { email };
-    
-    try {
-      const res = await axios.post(
-        "https://capstone-project-backend-j3mu.onrender.com/api/user/forgotpassword",
-        payloads
-      );
-      if (res.data.Status === "Success") {
-        alert("Check your Email for reset password link");
-        navigate("/login");
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    axios.post(
+      "https://capstone-project-backend-j3mu.onrender.com/api/user/forgotpassword", { email })
+      .then(res => {
+        if (res.data.Status === "Success") {
+        navigate ('login')
       }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    }) .catch(err => {console.log(err)})
+  }
 
   return (
     <div className="container text-center">

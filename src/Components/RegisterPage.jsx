@@ -1,20 +1,20 @@
 
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-  const validationSchema = Yup.object().shape({
-  username: Yup.string().required("Username is required"),
-  email: Yup.string().email("Invalid email").required("Email is required"),
-  password: Yup.string().required("Password is required"),
-});
-
 const RegisterPage = () => {
   const navigate = useNavigate();
+
+  const validationSchema = Yup.object().shape({
+    username: Yup.string().required("Username is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    password: Yup.string().required("Password is required"),
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -93,7 +93,44 @@ const RegisterPage = () => {
                   <div style={{ color: "red" }}>{formik.errors.username}</div>
                 ) : null}
 
-                {/* Similar code for email and password fields */}
+                <label
+                  htmlFor="inputEmail"
+                  className="form-label"
+                  style={{ marginRight: "245px", color: "blue" }}
+                >
+                  Email<span style={{ color: "red" }}>*</span>
+                </label>
+                <input
+                  type="email"
+                  id="inputEmail"
+                  className="form-control"
+                  placeholder="name@gmail.com"
+                  {...formik.getFieldProps("email")}
+                  style={{ width: "300px" }}
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <div style={{ color: "red" }}>{formik.errors.email}</div>
+                ) : null}
+
+                <label
+                  htmlFor="inputPassword"
+                  className="form-label"
+                  style={{ marginRight: "215px", color: "blue" }}
+                >
+                  Password<span style={{ color: "red" }}>*</span>
+                </label>
+                <input
+                  type="password"
+                  id="inputPassword"
+                  className="form-control"
+                  aria-describedby="passwordHelpBlock"
+                  placeholder="Password"
+                  {...formik.getFieldProps("password")}
+                  style={{ width: "300px" }}
+                />
+                {formik.touched.password && formik.errors.password ? (
+                  <div style={{ color: "red" }}>{formik.errors.password}</div>
+                ) : null}
               </div>
               <br />
               <div className="text-center">

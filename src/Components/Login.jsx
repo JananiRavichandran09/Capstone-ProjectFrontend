@@ -21,13 +21,14 @@ const Login = () => {
       )
       .then((result) => {
         console.log(result);
-        let toastmessage = toast.success("Login Successfull!");
+       
         if (result.data === "Success") {
           navigate("/goldrate");
         }
       })
       .catch((err) => {
         console.log(err);
+        toast.error("Login Failed!")
       });
   }
  

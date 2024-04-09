@@ -13,7 +13,7 @@ const Login = () => {
   const handleSubmit = (e) => {
      
     e.preventDefault()
-    toast.success("Login Successfull!");
+   
     axios
       .post(
         "https://capstone-project-backend-j3mu.onrender.com/api/user/login",
@@ -23,12 +23,13 @@ const Login = () => {
         console.log(result);
        
         if (result.data === "Success") {
+           toast.success("Login Successfull!");
           navigate("/goldrate");
         }
       })
       .catch((err) => {
         console.log(err);
-        toast.error("Login Failed!")
+        toast.error("Login Failed")
       });
   }
  

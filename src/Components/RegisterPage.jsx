@@ -52,9 +52,11 @@ const RegisterPage = () => {
           }
         )
         .then((result) => {
-          alert("Registration successful! ");
           if (result.data.Status === "success") {
+            toast.success("Registration successful!");
             navigate("/login");
+          } else {
+            toast.error("Registration failed! Please try again.");
           }
         })
         .catch((err) => {
@@ -106,7 +108,7 @@ const RegisterPage = () => {
                   type="text"
                   id="inputuserName"
                   className={`form-control ${usernameError && "is-invalid"}`}
-                  aria-describedby="passwordHelpBlock"
+                  aria-describedby="usernameHelpBlock"
                   placeholder="Username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
@@ -117,8 +119,8 @@ const RegisterPage = () => {
                 )}
 
                 <label
-                  htmlFor="exampleFormControlInput1"
-                  className="col-form-label"
+                  htmlFor="inputEmail"
+                  className="form-label"
                   style={{ marginRight: "245px", color: "blue" }}
                 >
                   Email<span style={{ color: "red" }}>*</span>
@@ -126,7 +128,7 @@ const RegisterPage = () => {
                 <input
                   type="email"
                   className={`form-control ${emailError && "is-invalid"}`}
-                  id="exampleFormControlInput1"
+                  id="inputEmail"
                   placeholder="name@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -137,7 +139,7 @@ const RegisterPage = () => {
                 )}
 
                 <label
-                  htmlFor="inputPassword5"
+                  htmlFor="inputPassword"
                   className="form-label"
                   style={{ marginRight: "215px", color: "blue" }}
                 >
@@ -145,7 +147,7 @@ const RegisterPage = () => {
                 </label>
                 <input
                   type="password"
-                  id="inputPassword5"
+                  id="inputPassword"
                   className={`form-control ${passwordError && "is-invalid"}`}
                   aria-describedby="passwordHelpBlock"
                   placeholder="Password"
